@@ -16,6 +16,10 @@ describe Blog do
       expect(Blog.count).to eq 0
     end
 
+
+
+
+
   end
 
 end

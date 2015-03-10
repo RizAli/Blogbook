@@ -1,4 +1,5 @@
 require 'data_mapper'
+require 'sinatra'
 
 env = ENV['RACK_ENV'] || 'development'
 
@@ -8,3 +9,10 @@ require 'blog'
 DataMapper.finalize
 
 DataMapper.auto_upgrade!
+set:views, Proc.new { File.join(root,"/views")}
+
+
+get '/' do
+  @blogs = Blog.all
+  erb :index
+end
